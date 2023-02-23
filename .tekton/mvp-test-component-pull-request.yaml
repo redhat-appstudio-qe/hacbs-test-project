@@ -7,14 +7,14 @@ metadata:
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-event: '[pull_request]'
-    pipelinesascode.tekton.dev/on-target-branch: '[base-iepn]'
+    pipelinesascode.tekton.dev/on-target-branch: '[base-pvgs]'
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: mvp-test-app
     appstudio.openshift.io/component: mvp-test-component
     pipelines.appstudio.openshift.io/type: build
   name: mvp-test-component-on-pull-request
-  namespace: mvp-demo-dev-namespace-gzqj-tenant
+  namespace: mvp-demo-dev-namespace-eepi-tenant
 spec:
   params:
   - name: dockerfile
@@ -170,7 +170,7 @@ spec:
       runAfter:
       - prefetch-dependencies
       taskRef:
-        bundle: quay.io/redhat-appstudio-tekton-catalog/task-buildah:0.1@sha256:3ec1cd16f0467534db8e4d1ffcacfb18a5801acc763e8dcd4d92c292e3aa3de6
+        bundle: quay.io/redhat-appstudio-tekton-catalog/task-buildah:0.1@sha256:2605e8271838f1af83263a4330e7e3eeccbff56280ce68092e87a2e18e8df44c
         name: buildah
       when:
       - input: $(tasks.init.results.build)
@@ -205,7 +205,7 @@ spec:
       runAfter:
       - sanity-inspect-image
       taskRef:
-        bundle: quay.io/redhat-appstudio-tekton-catalog/task-sanity-label-check:0.1@sha256:8d011078bf48ca40b06752a6f777b441769b88731b3ef2d8458fbc02ab575ac9
+        bundle: quay.io/redhat-appstudio-tekton-catalog/task-sanity-label-check:0.1@sha256:b395d34d8388fb15ac1fce8787809b54fb49f2e03a910abf5b4685511fc4caee
         name: sanity-label-check
       when:
       - input: $(params.skip-checks)
@@ -222,7 +222,7 @@ spec:
       runAfter:
       - sanity-inspect-image
       taskRef:
-        bundle: quay.io/redhat-appstudio-tekton-catalog/task-sanity-label-check:0.1@sha256:8d011078bf48ca40b06752a6f777b441769b88731b3ef2d8458fbc02ab575ac9
+        bundle: quay.io/redhat-appstudio-tekton-catalog/task-sanity-label-check:0.1@sha256:b395d34d8388fb15ac1fce8787809b54fb49f2e03a910abf5b4685511fc4caee
         name: sanity-label-check
       when:
       - input: $(params.skip-checks)
