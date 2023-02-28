@@ -6,14 +6,14 @@ metadata:
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-event: '[push]'
-    pipelinesascode.tekton.dev/on-target-branch: '[base-nziy]'
+    pipelinesascode.tekton.dev/on-target-branch: '[base-uyqy]'
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: mvp-test-app
     appstudio.openshift.io/component: mvp-test-component
     pipelines.appstudio.openshift.io/type: build
   name: mvp-test-component-on-push
-  namespace: mvp-demo-dev-namespace-zkkf-tenant
+  namespace: mvp-demo-dev-namespace-rrys-tenant
 spec:
   params:
   - name: dockerfile
