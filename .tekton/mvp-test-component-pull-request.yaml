@@ -7,14 +7,14 @@ metadata:
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-event: '[pull_request]'
-    pipelinesascode.tekton.dev/on-target-branch: '[base-ibxo]'
+    pipelinesascode.tekton.dev/on-target-branch: '[base-inch]'
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: mvp-test-app
     appstudio.openshift.io/component: mvp-test-component
     pipelines.appstudio.openshift.io/type: build
   name: mvp-test-component-on-pull-request
-  namespace: mvp-demo-dev-namespace-tsly-tenant
+  namespace: mvp-demo-dev-namespace-ayjd-tenant
 spec:
   params:
   - name: dockerfile
@@ -37,10 +37,8 @@ spec:
         value: $(tasks.clone-repository.results.url)?rev=$(tasks.clone-repository.results.commit)
       - name: image-url
         value: $(params.output-image)
-      - name: build-task-status
-        value: $(tasks.build-container.status)
       taskRef:
-        bundle: quay.io/redhat-appstudio-tekton-catalog/task-summary:0.1@sha256:c0f66b28c338426774e34a8d4a00349fbab798b19df5841a95727148d5ef3c65
+        bundle: quay.io/redhat-appstudio-tekton-catalog/task-summary:0.1@sha256:03361504506b038934d2a2ed397970f183f9a23506b810bccc964f4c486bfe79
         name: summary
     params:
     - description: Source Repository URL
