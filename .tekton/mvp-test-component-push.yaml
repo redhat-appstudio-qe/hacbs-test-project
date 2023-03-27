@@ -6,14 +6,14 @@ metadata:
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-event: '[push]'
-    pipelinesascode.tekton.dev/on-target-branch: '[base-ysrf]'
+    pipelinesascode.tekton.dev/on-target-branch: '[base-yofi]'
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: mvp-test-app
     appstudio.openshift.io/component: mvp-test-component
     pipelines.appstudio.openshift.io/type: build
   name: mvp-test-component-on-push
-  namespace: mvp-demo-dev-namespace-cbbb-tenant
+  namespace: mvp-demo-dev-namespace-ixwz-tenant
 spec:
   params:
   - name: dockerfile
@@ -171,7 +171,7 @@ spec:
       runAfter:
       - prefetch-dependencies
       taskRef:
-        bundle: quay.io/redhat-appstudio-tekton-catalog/task-buildah:0.1@sha256:c3712257615d206ef40013bf1c5c681670fc8f7fd6aac9fa4c86f7afeff627ef
+        bundle: quay.io/redhat-appstudio-tekton-catalog/task-buildah:0.1@sha256:cf39ec6c22bc806852d5f1106a80e66d1c8619bd0420bb2510dfffd793d20067
         name: buildah
       when:
       - input: $(tasks.init.results.build)
