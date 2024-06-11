@@ -7,14 +7,14 @@ metadata:
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch
-      == "base-bsvuos"
+      == "base-yxhqcn"
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: rhtap-demo-app
     appstudio.openshift.io/component: rhtap-demo-component
     pipelines.appstudio.openshift.io/type: build
   name: rhtap-demo-component-on-push
-  namespace: rhtap-demo-utyz-tenant
+  namespace: rhtap-demo-cqdf-tenant
 spec:
   params:
   - name: git-url
@@ -22,7 +22,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/redhat-appstudio-qe/rhtap-demo-utyz-tenant/rhtap-demo-app/rhtap-demo-component:{{revision}}
+    value: quay.io/redhat-appstudio-qe/rhtap-demo-cqdf-tenant/rhtap-demo-app/rhtap-demo-component:{{revision}}
   - name: dockerfile
     value: Dockerfile
   pipelineSpec:
