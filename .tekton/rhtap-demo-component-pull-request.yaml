@@ -8,14 +8,14 @@ metadata:
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch
-      == "base-rbotlg"
+      == "base-iepyvk"
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: rhtap-demo-app
     appstudio.openshift.io/component: rhtap-demo-component
     pipelines.appstudio.openshift.io/type: build
   name: rhtap-demo-component-on-pull-request
-  namespace: rhtap-demo-ijte-tenant
+  namespace: rhtap-demo-awyn-tenant
 spec:
   params:
   - name: git-url
@@ -23,7 +23,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/redhat-appstudio-qe/rhtap-demo-ijte-tenant/rhtap-demo-app/rhtap-demo-component:on-pr-{{revision}}
+    value: quay.io/redhat-appstudio-qe/rhtap-demo-awyn-tenant/rhtap-demo-app/rhtap-demo-component:on-pr-{{revision}}
   - name: image-expires-after
     value: 6h
   - name: dockerfile
@@ -238,7 +238,7 @@ spec:
         - name: name
           value: buildah
         - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-buildah:0.1@sha256:71270c342a02cf661fbe02ce4814f0c5f10e7d59e55ac8f01b9cc8636c904958
+          value: quay.io/konflux-ci/tekton-catalog/task-buildah:0.1@sha256:0dc30879d75a11974620a71867b3cbeb7052dc082d9bc49b1f98c5b3a255d4bc
         - name: kind
           value: task
         resolver: bundles
