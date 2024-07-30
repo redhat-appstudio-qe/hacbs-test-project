@@ -7,14 +7,14 @@ metadata:
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch
-      == "base-gdbael"
+      == "base-ykbyho"
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: konflux-demo-app
     appstudio.openshift.io/component: konflux-demo-component
     pipelines.appstudio.openshift.io/type: build
   name: konflux-demo-component-on-push
-  namespace: konflux-dtam-tenant
+  namespace: konflux-admc-tenant
 spec:
   params:
   - name: git-url
@@ -22,7 +22,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/redhat-appstudio-qe/konflux-dtam-tenant/konflux-demo-app/konflux-demo-component:{{revision}}
+    value: quay.io/redhat-appstudio-qe/konflux-admc-tenant/konflux-demo-app/konflux-demo-component:{{revision}}
   - name: dockerfile
     value: Dockerfile
   pipelineSpec:
